@@ -1,4 +1,6 @@
 import React from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /**
  * App
@@ -53,15 +55,23 @@ class App extends React.Component {
         else {  
 
         return (
-            <div className="App">
-                <ul>
-                    {items.paid.map(item => (
-                        <li key={item.city}>
-                            Name: {item.city} | Email: {item.user_id}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+  <div className="row start">
+     {items.paid.map(item => ( 
+  <div className = "col-md-4 col-sm-6 card img-thumbnail">
+    
+  <img src={item.imageURL} alt="no-image" style={{width: '100%'}} />
+  <div className = "container">
+    <h5><b>{item.confName}</b></h5>
+    <p>{item.confStartDate}</p>
+    <p>{item.entryType}</p>
+    <p>{item.venue}</p>
+    <span><a href={item.confUrl}><i className="icon-eye" /> View</a></span> 
+  </div>
+</div>
+
+))}
+</div>
+
         );
       }
    }
